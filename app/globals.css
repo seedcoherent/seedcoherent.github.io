@@ -1,0 +1,259 @@
+:root {
+  --bg: #0b0e14;
+  --bg-elev: #141926;
+  --border: #232a3a;
+  --text: #e6e9ef;
+  --text-dim: #9aa4b8;
+  --accent: #5eead4;
+  --accent-dim: #2dd4bf;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+code {
+  font-family: var(--mono);
+}
+
+.wordmark {
+  font-family: var(--mono);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+a {
+  color: var(--accent-dim);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--accent);
+}
+
+/* Nav */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+}
+.nav-links {
+  display: flex;
+  gap: 20px;
+  font-family: var(--mono);
+  font-size: 14px;
+}
+
+/* Hero */
+.hero {
+  padding-bottom: 64px;
+}
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 48px 0 24px;
+}
+.tagline {
+  font-size: 1.125rem;
+  color: var(--text-dim);
+  max-width: 640px;
+  margin-bottom: 32px;
+}
+.tagline code {
+  color: var(--text);
+  font-size: 0.95em;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 500;
+  transition: border-color 0.15s, background 0.15s;
+}
+.btn:hover {
+  border-color: var(--accent-dim);
+  color: var(--text);
+}
+.btn-primary {
+  background: var(--accent);
+  color: #06201c;
+  border-color: var(--accent);
+}
+.btn-primary:hover {
+  background: var(--accent-dim);
+  color: #06201c;
+}
+
+/* Copy command */
+.copy-command {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-family: var(--mono);
+  font-size: 14px;
+  overflow-x: auto;
+}
+.copy-command code {
+  white-space: nowrap;
+}
+.copy-command .prompt {
+  color: var(--accent);
+  user-select: none;
+  margin-right: 6px;
+}
+.copy-command button {
+  flex-shrink: 0;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+.copy-command button:hover {
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+
+/* Sections */
+.section {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+}
+.section h2 {
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+.section h2.mt {
+  margin-top: 56px;
+}
+.section-lead {
+  color: var(--text-dim);
+  max-width: 640px;
+  margin-bottom: 24px;
+}
+.problem p {
+  font-size: 1.15rem;
+  color: var(--text-dim);
+  max-width: 720px;
+}
+.problem em {
+  color: var(--text);
+  font-style: italic;
+}
+
+/* Feature grid */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.feature-card {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+}
+.feature-card h3 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: var(--accent);
+}
+.feature-card p {
+  font-size: 0.925rem;
+  color: var(--text-dim);
+}
+
+/* Demo */
+.demo img {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: block;
+}
+
+/* Code block */
+.code-block {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 0 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+.footer-links {
+  display: flex;
+  gap: 20px;
+  font-family: var(--mono);
+  font-size: 14px;
+}
+.footer-meta {
+  color: var(--text-dim);
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    margin-top: 32px;
+  }
+}
