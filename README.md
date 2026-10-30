@@ -1,6 +1,6 @@
 # seedcoherent.github.io
 
-Landing site for [seedcoherent](https://github.com/seedcoherent/seedcoherent) — a
+Landing site for [seedcoherent](https://github.com/seedcoherent/seedcoherent), a
 schema-aware synthetic data generator.
 
 Built with Next.js (static export) and deployed to GitHub Pages.

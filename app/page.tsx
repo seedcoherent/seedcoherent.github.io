@@ -6,34 +6,34 @@ const NPM_URL = "https://www.npmjs.com/package/seedcoherent";
 const features = [
   {
     title: "Referentially correct",
-    body: "Children reference parents that exist. Zero orphan rows, including composite and self-referential foreign keys.",
+    body: "Children reference parents that exist, so you get zero orphan rows. Composite and self-referential foreign keys included.",
   },
   {
     title: "Constraint-aware",
-    body: "Respects NOT NULL, UNIQUE (single + composite), enums, varchar(n) length, identity/serial PKs, and common CHECK constraints.",
+    body: "Respects NOT NULL, UNIQUE (single and composite), enums, varchar(n) length, identity/serial PKs, and common CHECK constraints.",
   },
   {
     title: "Looks real",
-    body: "Column names drive content — email gets emails, price gets money, created_at gets plausible timestamps. Not lorem ipsum.",
+    body: "Column names drive the content. An email column gets emails, price gets money, created_at gets plausible timestamps. No lorem ipsum.",
   },
   {
     title: "Coherent within a row",
-    body: "full_name, email, and username all derive from the row's own name; zip, city, and state agree. Timestamps respect causality.",
+    body: "full_name, email, and username all derive from the row's own name. zip, city, and state agree, and timestamps respect causality.",
   },
   {
     title: "Deterministic",
-    body: "--seed 42 gives byte-identical output every run. Repeatable fixtures for tests and CI.",
+    body: "Pass --seed 42 and you get byte-identical output every run. Repeatable fixtures for tests and CI.",
   },
   {
     title: "Fast",
-    body: "~300k rows/sec end-to-end on SQLite — a 1.1M-row, 5-table graph seeds in under 4 seconds on a laptop.",
+    body: "Around 300k rows/sec end to end on SQLite. A 1.1M-row, 5-table graph seeds in under 4 seconds on a laptop.",
   },
   {
     title: "Four databases, one tool",
-    body: "Postgres, MySQL, SQLite, and SQL Server, selected from the connection string — same flags, same behavior.",
+    body: "Postgres, MySQL, SQLite, and SQL Server, picked from the connection string. Same flags, same behavior.",
   },
   {
-    title: "Subset + anonymize",
+    title: "Subset and anonymize",
     body: "Pull a referentially-complete slice of real production data and scrub the PII on the way out, straight into staging or CI.",
   },
 ];
@@ -45,17 +45,17 @@ npx seedcoherent ./mydb.sqlite --rows users=1000 orders=5000
 # Preview without writing a single row
 npx seedcoherent $DATABASE_URL --rows users=1000 --dry-run
 
-# Offline from a DDL file — no DB connection needed (great for CI)
+# Offline from a DDL file, no DB connection needed (handy in CI)
 npx seedcoherent --schema-file schema.sql --rows users=1000 -o seed.sql
 
 # Deterministic, and localized
 npx seedcoherent $DATABASE_URL --rows users=100 --seed 42 --locale de`;
 
-const subsetExamples = `# 500 orders and everything they reference (users, products, categories…),
+const subsetExamples = `# 500 orders and everything they reference (users, products, categories...),
 # anonymized, inserted into a separate staging DB.
 npx seedcoherent $PROD_URL --subset orders=500 --to $STAGING_URL --seed 42
 
-# Print a privacy report first — which columns look like PII — and exit.
+# Print a privacy report first (which columns look like PII) and exit.
 npx seedcoherent $PROD_URL --subset orders=500 --scan`;
 
 export default function Home() {
@@ -77,8 +77,9 @@ export default function Home() {
         <p className="tagline">
           Faker doesn&apos;t understand your schema. <code>seedcoherent</code>{" "}
           reads your live Postgres, MySQL, SQLite, or SQL Server database, walks
-          the foreign-key graph, and generates data that actually fits — real
-          parent rows, holding constraints, realistic content.
+          the foreign-key graph, and generates data that actually fits: real
+          parent rows, constraints that hold, content that looks like the real
+          thing.
         </p>
         <CopyCommand command="npx seedcoherent $DATABASE_URL --rows users=1000 orders=5000" />
         <div className="hero-cta">
@@ -104,7 +105,7 @@ export default function Home() {
 
       {/* Features */}
       <section className="section">
-        <h2>Why it&apos;s different</h2>
+        <h2>Why it&apos;s not just Faker</h2>
         <div className="feature-grid">
           {features.map((f) => (
             <div className="feature-card" key={f.title}>
@@ -127,17 +128,17 @@ export default function Home() {
         <h2>Generate synthetic data</h2>
         <p className="section-lead">
           Fill an empty or existing schema with realistic, referentially-correct
-          rows. Zero install — one <code>npx</code> command.
+          rows. No install, just one <code>npx</code> command.
         </p>
         <pre className="code-block">
           <code>{generateExamples}</code>
         </pre>
 
-        <h2 className="mt">Subset &amp; anonymize real data</h2>
+        <h2 className="mt">Subset and anonymize real data</h2>
         <p className="section-lead">
           Point it at a real database, pull a small, referentially-complete
-          slice, and scrub the PII on the way out — perfect for filling a
-          staging or CI database with realistic-but-fake data.
+          slice, and scrub the PII on the way out. A good way to fill a staging
+          or CI database with data that behaves like production but isn&apos;t.
         </p>
         <pre className="code-block">
           <code>{subsetExamples}</code>

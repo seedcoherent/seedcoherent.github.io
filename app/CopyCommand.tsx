@@ -11,7 +11,7 @@ export default function CopyCommand({ command }: { command: string }) {
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
     } catch {
-      // Clipboard unavailable (e.g. insecure context) — fail quietly.
+      // Clipboard unavailable (e.g. insecure context); fail quietly.
     }
   };
 

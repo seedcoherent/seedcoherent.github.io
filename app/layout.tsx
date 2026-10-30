@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const title = "seedcoherent — schema-aware synthetic data generator";
+const title = "seedcoherent: schema-aware synthetic data generator";
 const description =
   "Point it at your Postgres, MySQL, SQLite, or SQL Server schema, get coherent, referentially-correct fake data.";
 
