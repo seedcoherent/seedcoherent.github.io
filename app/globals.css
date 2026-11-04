@@ -211,6 +211,34 @@ a:hover {
   color: var(--text-dim);
 }
 
+/* Card as a link (guides grid, blog list) */
+a.feature-card {
+  color: inherit;
+  transition: border-color 0.15s, background 0.15s;
+}
+a.feature-card:hover {
+  border-color: var(--accent-dim);
+}
+a.feature-card h3 {
+  color: var(--accent);
+}
+
+/* Link list (related pages, hub links) */
+.link-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--text-dim);
+}
+.link-list.mt-list {
+  margin-top: 24px;
+}
+.link-list a {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+}
+
 /* Demo */
 .demo img {
   width: 100%;

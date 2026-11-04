@@ -1,7 +1,5 @@
 import CopyCommand from "./CopyCommand";
-
-const GITHUB_URL = "https://github.com/seedcoherent/seedcoherent";
-const NPM_URL = "https://www.npmjs.com/package/seedcoherent";
+import { GITHUB_URL, NPM_URL, hubPages, landingPages } from "./landing-pages";
 
 const features = [
   {
@@ -66,6 +64,7 @@ export default function Home() {
         <nav className="nav">
           <span className="wordmark">seedcoherent</span>
           <div className="nav-links">
+            <a href="#guides">Guides</a>
             <a href={GITHUB_URL}>GitHub</a>
             <a href={NPM_URL}>npm</a>
           </div>
@@ -143,6 +142,30 @@ export default function Home() {
         <pre className="code-block">
           <code>{subsetExamples}</code>
         </pre>
+      </section>
+
+      {/* Guides */}
+      <section className="section" id="guides">
+        <h2>Guides</h2>
+        <p className="section-lead">
+          Task-focused pages for common seeding jobs, plus comparisons, recipes,
+          and writing on how it works.
+        </p>
+        <div className="feature-grid">
+          {landingPages.map((p) => (
+            <a className="feature-card" key={p.slug} href={`/${p.slug}/`}>
+              <h3>{p.title}</h3>
+              <p>{p.description}</p>
+            </a>
+          ))}
+        </div>
+        <ul className="link-list mt-list">
+          {hubPages.map((h) => (
+            <li key={h.slug}>
+              <a href={`/${h.slug}/`}>{h.title}</a> — {h.description}
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* Footer */}
