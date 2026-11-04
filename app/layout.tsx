@@ -6,6 +6,7 @@ const description =
   "Point it at your Postgres, MySQL, SQLite, or SQL Server schema, get coherent, referentially-correct fake data.";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://seedcoherent.github.io"),
   title,
   description,
   openGraph: {
